@@ -1,3 +1,56 @@
 body {
-    background-color: grey;
+    background-image: url(https://www.heyalma.com/wp-content/uploads/2018/02/question-mark-1084522_1920.jpg);
+    background-size: cover;
+    color: #E0BF94;
 }
+
+#main-section{
+    margin: 0px 300px 300px 300px;
+    padding: 50px;
+    background-color: #A36C7C;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+#sticky-title{
+    text-align: center;
+    font-weight: bolder;
+    border-style: solid;
+    border-color:#24392A;
+    border-width: medium;
+    padding: 1em;
+    background-color: #6A495E;
+    
+}
+#quizForm{
+    background-color: #8B6D5B;
+    padding: 20px;
+    padding-left: 100px;
+    border-style: solid;
+    border-color:#24392A;
+    border-width: medium;
+}
+
+#start{
+    width: 400px;
+    margin-right: auto;
+    margin-left: auto;
+    background-color: #6A495E;
+    color: #213E14;
+    font-weight: bolder;
+    font-size: 20px;  
+}
+
+.qHeading{
+    text-decoration: underline;
+}
+
+#submitAnswers{
+    width: 400px;
+    margin-right: auto;
+    margin-left: auto;
+    background-color: #6A495E;
+    color: #213E14;
+    font-weight: bolder;
+    font-size: 20px; 
+}
+
