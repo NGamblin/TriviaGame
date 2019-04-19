@@ -1,20 +1,30 @@
 //======Click start button calls begin function in game object and starts the timer//
-countdown = 10;
+countdown = 45;
 $("#start").on("click", function () {
     game.begin();
 });
 
 $("form#quizForm").on("submit", function (event) {
+    console.log("Sumbitted")
     event.preventDefault();
+    // console.log(event.target.Q0.value);
     // console.log(event.target.Q1.value);
+    // console.log(event.target.Q2.value);
+    // console.log(event.target.Q3.value);
+    // console.log(event.target.Q4.value);
     game.gameOver(); 
 });
 
-//==========declares var for #correct/incorrect and begin function that appends quiz to DOM
+$("#takeAgain").on("click", function () {
+    game.begin();
+});
+
+//==========Game object with score variables, on click begin function, 
 
 var game = {
     correct: 0,
     incorrect: 0,
+    unanswered: 0,
     timerId: null,
     begin: function () {
         console.log("Start!");
@@ -37,14 +47,59 @@ var game = {
                 console.log("now is <" + now)
                 document.getElementById("countdownDiv").innerHTML = now;
                 game.gameOver();
-                // run a function to calc scores, clearInterval(ger rid of one above), clear quizForm div, and display scores to DOM     
-            }
+
+            }  
         }, 1000);
     },
-    gameOver: function(){
+        gameOver: function(){
+        // end timer
         clearInterval(game.timerId)
+        //Evaluate answers
+        if (event.target.Q0.value == qAndA[0].correctChoice){
+            game.correct++; 
+        } else if (event.target.Q0.value !== qAndA[0].correctChoice){
+            game.incorrect++;
+        } else {
+            game.unanswered++;
     }
+        if (event.target.Q1.value == qAndA[1].correctChoice){
+            game.correct++; 
+        } else if (event.target.Q1.value !== qAndA[1].correctChoice){
+            game.incorrect++;
+        } else {
+            game.unanswered++;               
+    }
+        if (event.target.Q2.value == qAndA[2].correctChoice){
+            game.correct++; 
+        } else if (event.target.Q2.value !== qAndA[2].correctChoice){
+            game.incorrect++;
+        } else {
+            game.unanswered++;
+    }
+        if (event.target.Q3.value == qAndA[3].correctChoice){
+            game.correct++; 
+        } else if (event.target.Q3.value !== qAndA[3].correctChoice){
+            game.incorrect++;
+        } else {
+            game.unanswered++;
+    }
+        if (event.target.Q4.value == qAndA[4].correctChoice){
+            game.correct++; 
+        } else if (event.target.Q4.value !== qAndA[4].correctChoice && event.target.Q4.value !== null){
+            game.incorrect++;
+        } else {
+            game.unanswered++;
+    }
+        console.log(game.correct)
+        console.log(game.incorrect)
+        console.log(game.unanswered)
+        $("#quizForm").empty()
+        $("#quizForm").append("<p id='displayCorrect'>"+game.correct+" answered correctly</p>");
+        $("#quizForm").append("<p id='displayIncorrect'>"+game.incorrect+" answered incorrectly</p>");
+        $("#quizForm").append("<p id='displayUnswered'>"+game.unanswered+" unanswered</p>");
+        // $("#quizForm").append("<button type ='button' id='takeAgain'>Take it again!</button>");
 
+}
 }
 
 //=======Object defining questions, answer choices, and the correct answers 
