@@ -1,2 +1,2 @@
 # TriviaGame
-JavaScript Assignment 2
+https://ngamblin.github.io/TriviaGame/
